@@ -12,21 +12,20 @@ const btnScanQR = document.getElementById("btn-scan-qr");
 let scanning = false;
 
 //funcion para encender la camara
-function encenderCamara = () => {
-  navigator.mediaDevices
-    .getUserMedia({ video: { facingMode: "environment" } })
-    .then(function (stream) {
-      scanning = true;
-      btnScanQR.hidden = true;
-      canvasElement.hidden = false;
-      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-      video.srcObject = stream;
-      video.play();
-      tick();
-      scan();
-    });
-};
-
+function encenderCamara() {
+    navigator.mediaDevices
+      .getUserMedia({ video: { facingMode: "environment" } })
+      .then(function (stream) {
+        scanning = true;
+        btnScanQR.hidden = true;
+        canvasElement.hidden = false;
+        video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+        video.srcObject = stream;
+        video.play();
+        tick();
+        scan();
+      });
+  }
 //funciones para levantar las funiones de encendido de la camara
 function tick() {
   canvasElement.height = video.videoHeight;
@@ -56,20 +55,21 @@ const cerrarCamara = () => {
 
 //callback cuando termina de leer el codigo QR
 qrcode.callback = (respuesta) => {
-  if (respuesta) {
-    //console.log(respuesta);
-    Swal.fire(respuesta)
-    activarSonido();
-    //encenderCamara();    
-    cerrarCamara();    
-
-  }
+    if (respuesta) {
+        google.script.run.withSuccessHandler(function(result) {
+          if (result) {
+            console.log("Dato encontrado en la hoja de Google Sheets");
+            // Aquí puedes realizar cualquier acción adicional con el resultado
+          } else {
+            console.log("Dato no encontrado en la hoja de Google Sheets");
+          }
+        }).findValueOverARange_v2(respuesta);
+        activarSonido();
+        cerrarCamara();
+      }
 };
 //evento para mostrar la camara sin el boton 
 window.addEventListener('load', (e) => {
   encenderCamara();
 })
 
-window.addEventListener('load', (e) =>{
-    encenderCamara();
-})
