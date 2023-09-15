@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Registrar venta</title>
+  <script src="qrcode.min.js"></script>
+  <script src="qrgenerator.js"></script>
+</head>
+
+<h1>Registro de entradas para evento</h1>
+<h2>Agregar nueva venta</h2>
+
+<div id="form-box">
+<form
+method="POST" 
+action="https://script.google.com/macros/s/AKfycbxIGn8oLEUX7Pr6luLF6DsdBoeY1RzXUIBdlNt0RxuQpz6N9fpyAFs0FQdS-yfpOwmf8Q/exec"
+id="my-form"
+>
+  <div>
+    <span>Categoria:</span> 
+      <select id="Categoria" name="Categoria">
+          <option value="Normal">Normal</option>
+          <option value="VIP">VIP</option>
+      </select>
+  </div>
+  
+  <div>
+    <span>Nombre:</span> <input type="text" id="Nombre" class="input" placeholder="Ingrese nombre" name="Nombre">
+  </div>
+  <div>
+    <span>CI:</span> <input type="text" id="CI" class="input" placeholder="Ingrese cedula" name="CI">
+  </div>
+
+  <div>
+<span>Vendedor:</span> <input type="text" class="input" id="vendedor" placeholder="Ingrese el nombre del vendedor" name="vendedor">
+  </div>
+  <div>
+    <button onclick="generarCodigoQR()" type="submit" class="button">Enviar</button>
+  </div>
+</form>
+</div>
+<div id="codigoQR"></div>
+
+<script src="test.js"></script>

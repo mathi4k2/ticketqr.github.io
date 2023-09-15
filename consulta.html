@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lector de Códigos QR</title>
+    <!-- Incluye la biblioteca Instascan desde la CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/2.0.1/instascan.min.js"></script>
+</head>
+<body>
+    <h1>Lector de Códigos QR</h1>
+    <!-- Elemento de video para mostrar la cámara -->
+    <video id="scanner" style="width: 100%; height: auto;"></video>
+    <!-- Área para mostrar los resultados del escaneo -->
+    <div id="scan-result"></div>
+
+    <script>
+        // Configura el lector de códigos QR
+        const scanner = new Instascan.Scanner({ video: document.getElementById('scanner') });
+        scanner.addListener('scan', function (content) {
+            // Cuando se escanea un código QR, se ejecuta esta función
+            document.getElementById('scan-result').textContent = `Código QR leído: ${content}`;
+        });
+
+        // Iniciar el escáner
+        Instascan.Camera.getCameras().then(cameras => {
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]); // Usar la primera cámara encontrada
+            } else {
+                console.error('No se encontraron cámaras.');
+            }
+        });
+    </script>
+</body>
+</html>
