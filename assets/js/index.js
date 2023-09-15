@@ -63,12 +63,12 @@ qrcode.callback = (respuesta) => {
   if (respuesta) {
       google.script.run.withSuccessHandler(function(result) {
         if (result) {
-          Swal.fire(respuesta + " aceptado");
+          Swal.fire("aceptado");
           // Aquí puedes realizar cualquier acción adicional con el resultado
         } else {
-          Swal.fire(respuesta + " no registrado");
+          Swal.fire("No aceptado");
         }
-      }).findValueOverARange_v2(respuesta + "prueba");
+      }).findValueOverARange_v2(respuesta);
       activarSonido();
       cerrarCamara();
     }
