@@ -61,24 +61,18 @@ const activarSonido = () => {
 //callback cuando termina de leer el codigo QR
 qrcode.callback = (respuesta) => {
   if (respuesta) {
-      google.script.run.withSuccessHandler(function(result) {
-        if (result) {
-          Swal.fire("aceptado");
-          // Aquí puedes realizar cualquier acción adicional con el resultado
-        } else {
-          Swal.fire("No aceptado");
-        }
-      }).findValueOverARange_v2(respuesta);
-      activarSonido();
-      cerrarCamara();
-    }
+    //console.log(respuesta);
+    Swal.fire(respuesta)
+    activarSonido();
+    //encenderCamara();    
+    cerrarCamara();    
+
+  }
 };
 //evento para mostrar la camara sin el boton 
 window.addEventListener('load', (e) => {
   encenderCamara();
 })
-
-
 
 
 
