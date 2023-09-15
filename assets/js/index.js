@@ -68,7 +68,7 @@ qrcode.callback = (respuesta) => {
         } else {
           Swal.fire(respuesta + " no registrado");
         }
-      }).findValueOverARange_v2(respuesta);
+      }).findValueOverARange_v2(respuesta + "prueba");
       activarSonido();
       cerrarCamara();
     }
