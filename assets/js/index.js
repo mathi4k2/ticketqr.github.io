@@ -82,10 +82,10 @@ function searchInGoogleSheets(respuesta) {
       });
 }
 
-document.getElementById('search-form').addEventListener('submit', function(event) {
+function buscarManualmente() { 
   event.preventDefault();
   const valor = document.getElementById('valor').value;
   searchInGoogleSheets(valor);
   const respuestaContainer = document.getElementById("respuesta-container");
   respuestaContainer.innerHTML = valor;
-});
+};
