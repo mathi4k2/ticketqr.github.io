@@ -61,11 +61,11 @@ qrcode.callback = (respuesta) => {
     activarSonido();
     //encenderCamara();    
     cerrarCamara();    
-
+    let buscar = respuesta;
+    console.log(buscar);
   }
 };
 //evento para mostrar la camara sin el boton 
 window.addEventListener('load', (e) => {
   encenderCamara();
 })
-

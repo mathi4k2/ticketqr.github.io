@@ -61,12 +61,10 @@ const activarSonido = () => {
 //callback cuando termina de leer el codigo QR
 qrcode.callback = (respuesta) => {
   if (respuesta) {
-    //console.log(respuesta);
-    Swal.fire(respuesta)
+    const respuestaContainer = document.getElementById("respuesta-container");
+    respuestaContainer.innerHTML = respuesta; // Establece la respuesta como contenido HTML del elemento
     activarSonido();
-    //encenderCamara();    
-    cerrarCamara();    
-
+    cerrarCamara();
   }
 };
 //evento para mostrar la camara sin el boton 
@@ -74,5 +72,6 @@ window.addEventListener('load', (e) => {
   encenderCamara();
 })
 
-
-
+function procesarRespuesta(respuesta){
+  console.log("valor de la rp" + respuesta)
+}
