@@ -63,7 +63,7 @@ qrcode.callback = (respuesta) => {
   if (respuesta) {
     searchInGoogleSheets(respuesta);
     const respuestaContainer = document.getElementById("respuesta-container");
-    respuestaContainer.innerHTML = respuesta; // Establece la respuesta como contenido HTML del elemento
+    respuestaContainer.innerHTML = "CI: "+ respuesta; // Establece la respuesta como contenido HTML del elemento
     activarSonido();
     cerrarCamara();
   }
