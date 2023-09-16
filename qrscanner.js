@@ -55,18 +55,14 @@ const cerrarCamara = () => {
 
 //callback cuando termina de leer el codigo QR
 qrcode.callback = (respuesta) => {
-    if (respuesta) {
-        google.script.run.withSuccessHandler(function(result) {
-          if (result) {
-            console.log("Dato encontrado en la hoja de Google Sheets");
-            // Aquí puedes realizar cualquier acción adicional con el resultado
-          } else {
-            console.log("Dato no encontrado en la hoja de Google Sheets");
-          }
-        }).findValueOverARange_v2(respuesta);
-        activarSonido();
-        cerrarCamara();
-      }
+  if (respuesta) {
+    //console.log(respuesta);
+    Swal.fire(respuesta)
+    activarSonido();
+    //encenderCamara();    
+    cerrarCamara();    
+
+  }
 };
 //evento para mostrar la camara sin el boton 
 window.addEventListener('load', (e) => {
