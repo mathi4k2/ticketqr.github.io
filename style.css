@@ -7,21 +7,9 @@ html {
   padding: 0;
 }
 body {
-  overflow: hidden;
   position: relative;
-  padding-bottom: 75px;
   min-height: 100%;
-}
-.header_nav {
-  background: linear-gradient(90deg, #19e915 20%, rgba(0, 0, 0, 0.6) 60%);
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  justify-content: space-between;
-  align-items: stretch;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  background: linear-gradient(#fda403, #e8751a, #c51350, #8a1253);
 }
 
 .tittle {
@@ -36,10 +24,9 @@ h1 {
 }
 
 h2 {
+  margin: 15px;
   text-align: center;
-  margin-top: 30px;
   font-family: "Roboto", sans-serif;
-  margin-bottom: 50px;
 }
 
 input {
@@ -69,15 +56,21 @@ span {
   color: #ff4057;
   width: 600px;
   margin: 25px;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.9) 35%);  text-align: center;
-  font-family: 'fancy',sans-serif;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 35%,
+    rgba(255, 255, 255, 0.9) 35%
+  );
+  text-align: center;
+  font-family: "fancy", sans-serif;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .button {
-  background-color:#c51350;
+  background-color: #c51350;
   padding: 5px, 20px;
   text-align: center;
   line-height: 24px;
@@ -93,43 +86,13 @@ span {
 }
 
 .button:hover {
-  background-color:rgb(253, 164, 3);
+  background-color: rgb(253, 164, 3);
   border: solid 1px rgb(253, 164, 3);
-
-}
-
-.containerFooter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.footNav {
-  height: 75px;
-}
-
-.footerItem {
-  color: rgb(226, 16, 16);
-  text-decoration: none;
-  margin-left: 10px;
-}
-
-footer {
-  color: #ff4057;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.9) 35%);  text-align: center;
-  width: 100vw;
 }
 
 .container-page {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(#fda403, #e8751a, #c51350, #8a1253);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,4 +105,12 @@ form {
 
   margin: 25px;
   padding: 15px;
+}
+
+img {
+  margin-top: 10PX;
+ width: 150PX;
+ padding-left: 190px;
+
+  
 }
