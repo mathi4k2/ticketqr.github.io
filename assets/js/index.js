@@ -61,6 +61,7 @@ const activarSonido = () => {
 //callback cuando termina de leer el codigo QR
 qrcode.callback = (respuesta) => {
   if (respuesta) {
+    enviarRespuestaAGoogleSheets(respuesta);
     const respuestaContainer = document.getElementById("respuesta-container");
     respuestaContainer.innerHTML = respuesta; // Establece la respuesta como contenido HTML del elemento
     activarSonido();
@@ -72,6 +73,25 @@ window.addEventListener('load', (e) => {
   encenderCamara();
 })
 
-function procesarRespuesta(respuesta){
-  console.log("valor de la rp" + respuesta)
+
+function enviarRespuestaAGoogleSheets(respuesta) {
+  // URL de la aplicación web en Google Sheets (reemplaza con tu propia URL)
+  const urlAppGoogleSheets = "https://script.google.com/macros/s/AKfycbxF7l1WPRxoGIy5YPwXy3TZ1Xw47VMy_v4hjNs6Pe9_Z3RIlT_A84EcoYmgJkg12iUpjg/exec";
+
+  // Realiza una solicitud HTTP POST para enviar la respuesta
+  fetch(urlAppGoogleSheets, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ respuesta: respuesta }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const respuesta2 = document.getElementById("respuesta2");
+      respuesta2.innerHTML = respuesta;
+    })
+    .catch((error) => {
+      console.error("Error al enviar la respuesta a Google Sheets:", error);
+    });
 }
