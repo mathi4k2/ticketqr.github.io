@@ -23,8 +23,15 @@
         <button class="btn btn-danger btn-sm rounded-3" onclick="cerrarCamara()">Detener camara</button>
       </div>
     </div>
+    <div>
+    <form id="search-form">
+      <label for="valor">Busqueda manual:</label>
+      <input type="text" id="valor" name="valor">
+      <button type="submit">Buscar</button>
+    </div>
+  </form>
     <div id="respuesta-container"></div>
-    <div id="respuesta2"></div>
+    <div id="result"></div>
   </div>
   <audio id="audioScaner" src="assets/sonido.mp3"></audio>
   <script src="assets/js/index.js"></script>

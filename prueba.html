@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Búsqueda en Google Sheets</title>
+</head>
+<body>
+    <h1>Búsqueda en Google Sheets</h1>
+    
+    <form id="search-form">
+        <label for="valor">Valor a buscar:</label>
+        <input type="text" id="valor" name="valor">
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <h2>Resultado:</h2>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const valor = document.getElementById('valor').value;
+            searchInGoogleSheets(valor);
+        });
+
+        function searchInGoogleSheets(valor) {
+            fetch('https://script.google.com/macros/s/AKfycbwtdDZVKpfhsFV5Vchk5F4IlXP9CqMvHVISqfomD4ZpzxsppG-EgpVyha5NABFTplKRPw/exec?valor=' + encodeURIComponent(valor))
+                .then(response => response.json())
+                .then(data => {
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.textContent = data.result;
+                });
+        }
+    </script>
+</body>
+</html>
