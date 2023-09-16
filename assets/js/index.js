@@ -3,7 +3,7 @@ const video = document.createElement("video");
 
 //nuestro camvas
 const canvasElement = document.getElementById("qr-canvas");
-const canvas = canvasElement.getContext("2d");
+const canvas = canvasElement.getContext('2d', { willReadFrequently: true });
 
 //div donde llegara nuestro canvas
 const btnScanQR = document.getElementById("btn-scan-qr");
