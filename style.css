@@ -19,8 +19,9 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 30px;
+  margin: 30px auto;
   font-family: "Roboto", sans-serif;
+  width: 70%;
 }
 
 h2 {
