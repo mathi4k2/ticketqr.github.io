@@ -2,14 +2,16 @@ html {
   height: 100%;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+{
+margin: 0;
+padding: 0;
 }
 body {
   position: relative;
   min-height: 100%;
   background: linear-gradient(#fda403, #e8751a, #c51350, #8a1253);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .tittle {
@@ -19,9 +21,8 @@ body {
 
 h1 {
   text-align: center;
-  margin: 30px auto;
+  margin-top: 30px;
   font-family: "Roboto", sans-serif;
-  width: 70%;
 }
 
 h2 {
@@ -113,5 +114,5 @@ img {
  width: 150PX;
  padding-left: 190px;
 
-  
+
 }

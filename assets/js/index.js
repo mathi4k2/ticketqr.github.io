@@ -74,7 +74,7 @@ window.addEventListener('load', (e) => {
 })
 
 function searchInGoogleSheets(respuesta) {
-  fetch('https://script.google.com/macros/s/AKfycbywFACiD4gGF79jbdG931iV1lDDYEi5aW-3-6MHoIIFtKX21dephomgElcX0h-HcWgBYQ/exec?valor=' + encodeURIComponent(respuesta))
+  fetch('https://script.google.com/macros/s/AKfycby05bWG943w8ZSlPlILlGw0XWWHDMGdldYsxCYCeUcnzYOFE0sXudQx5QemNvrkJdEi8Q/exec?valor=' + encodeURIComponent(respuesta))
       .then(response => response.json())
       .then(data => {
           const resultDiv = document.getElementById('result');
